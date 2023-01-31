@@ -1,0 +1,51 @@
+﻿@model QuanLyBanHang.Models.DonHang
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Bạn có chắc chắn muốn hủy đơn hàng này?</h3>
+<div style="margin-left:210px;margin-top:50px; line-height:1.5;">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Mã đơn hàng: @Html.DisplayFor(model => model.MaDH)
+        </dt>
+        <dt>
+            Ngày lập đơn hàng: @Html.DisplayFor(model => model.NgayLapHD)
+        </dt>
+
+        <dt>
+            Ngày giao hàng:  @Html.DisplayFor(model => model.NgayGiaoHang)
+        </dt>
+
+        <dt>
+            Địa chỉ giao hàng: @Html.DisplayFor(model => model.DiaChiGiaoHang)
+        </dt>
+
+        <dt>
+            Tên khách hàng: @Html.DisplayFor(model => model.KhachHang.TenKH)
+        </dt>
+
+        <dt>
+            Nhân viên duyệt đơn: @Html.DisplayFor(model => model.Nhanvien.HoNV) @Html.DisplayFor(model => model.Nhanvien.Ten)
+        </dt>
+        <dt>
+            
+        </dt>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Hủy đơn" class="btn btn-danger" /> |
+            @Html.ActionLink("Trở về danh sách đơn hàng", "myOrders")
+        </div>
+    }
+</div>
+
+
